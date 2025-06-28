@@ -1,0 +1,6 @@
+g++ -c vehicle.cpp car.cpp bike.cpp 
+
+
+g++ -o abc client.cpp vehicle.cpp car.cpp bike.cpp 
+
+./abc
