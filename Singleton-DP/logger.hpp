@@ -2,6 +2,9 @@
 #define logger_hpp
 
 #include<iostream>
+
+
+
 using namespace std;
 
 class Logger{
@@ -12,7 +15,7 @@ class Logger{
     public:
         static int count_instance;
         static Logger*loggerInstance;
-        
+
         static Logger* getLogger();
         
 
