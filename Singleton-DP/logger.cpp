@@ -5,14 +5,19 @@
 using namespace std;
 
 Logger* Logger::loggerInstance=nullptr;
+mutex Logger::mtx;
 
 int Logger::count_instance=0;
 
 Logger* Logger::getLogger(){
 
+    mtx.lock();
+
     if(loggerInstance==nullptr){
         loggerInstance=new Logger();
     }
+    mtx.unlock();
+    
     return loggerInstance;
 }
 
