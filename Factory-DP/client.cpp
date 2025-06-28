@@ -1,25 +1,18 @@
-#include<iostream>
-#include "car.hpp"
-#include "bike.hpp"  
-#include "vehicle.hpp"  
+#include<iostream>  
+#include "factory.hpp"
+#include "vehicle.hpp"
 
 using namespace std;
 
 int main(){
 
     string vehicleType; 
-    
     cout<<"Enter VehicleType:"; cin>>vehicleType;
 
-    Vehicle * vehicle;
-
-    if(vehicleType=="bike"){
-        vehicle=new Bike();
-    }
-    if(vehicleType=="car"){
-        vehicle=new Car();
-    }
+    Vehicle *vehicle=Factory::getVehicle(vehicleType);
 
     vehicle->createVehicle();
+
+    return 0;
 
 }
