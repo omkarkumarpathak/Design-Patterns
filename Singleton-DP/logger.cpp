@@ -1,31 +1,38 @@
-#include<iostream>
+#include <iostream>
 #include "logger.hpp"
-#include<string>
+#include <string>
 
 using namespace std;
 
-Logger* Logger::loggerInstance=nullptr;
+Logger *Logger::loggerInstance = nullptr;
 mutex Logger::mtx;
 
-int Logger::count_instance=0;
+int Logger::count_instance = 0;
 
-Logger* Logger::getLogger(){
+Logger *Logger::getLogger()
+{
 
-    mtx.lock();
+    if (loggerInstance == nullptr)
+    {
+        mtx.lock();
 
-    if(loggerInstance==nullptr){
-        loggerInstance=new Logger();
+        if (loggerInstance == nullptr)
+        {
+            loggerInstance = new Logger();
+        }
+        mtx.unlock();
     }
-    mtx.unlock();
-    
+
     return loggerInstance;
 }
 
-Logger::Logger(){
+Logger::Logger()
+{
     count_instance++;
-    cout<<"New Instance Created   "<<count_instance<<endl;
+    cout << "New Instance Created   " << count_instance << endl;
 }
 
-void Logger::log(string msg){
-    cout<<msg<<endl;
+void Logger::log(string msg)
+{
+    cout << msg << endl;
 }
