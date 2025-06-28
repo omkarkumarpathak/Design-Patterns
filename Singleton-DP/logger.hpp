@@ -5,12 +5,18 @@
 using namespace std;
 
 class Logger{
+
+    private:
+        Logger();
+
     public:
         static int count_instance;
+        static Logger*loggerInstance;
         
-        Logger();
-        void log(string msg);
+        static Logger* getLogger();
+        
 
+        void log(string msg);
 };
 
 

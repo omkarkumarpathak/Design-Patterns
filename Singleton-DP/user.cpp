@@ -4,11 +4,8 @@
 
 int main(){
 
-    Logger* logger1=new Logger();
-    logger1->log("Mesg from User-1");
+    Logger* logger1= Logger::getLogger();
 
-    
-    Logger* logger2=new Logger();
-    logger1->log("Mesg from User-2");
+    logger1->log("Mesg from User-1");
 
 }
