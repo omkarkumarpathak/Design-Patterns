@@ -63,7 +63,7 @@ int main()
 
     group->notify(": is Receiving");
 
+    //after removing user1
     group->unsubscribe(user1);
-    group->unsubscribe(user2);
     group->notify(": is Receiving");
 }
